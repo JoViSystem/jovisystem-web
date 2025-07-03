@@ -4,28 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JoVi System</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  
   <style>
     body {
       font-family: 'Poppins', sans-serif;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 5px #22d3ee); }
-      50% { transform: translateY(-15px); filter: drop-shadow(0 0 15px #0ea5e9); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
     @keyframes float-slow {
-      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 3px #22d3ee); }
-      50% { transform: translateY(-8px); filter: drop-shadow(0 0 8px #0ea5e9); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     @keyframes float-slower {
-      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 2px #22d3ee); }
-      50% { transform: translateY(-5px); filter: drop-shadow(0 0 5px #0ea5e9); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     .animate-float {
       animation: float 4s ease-in-out infinite;
@@ -36,28 +33,12 @@
     .animate-float-slower {
       animation: float-slower 8s ease-in-out infinite;
     }
-    @keyframes pulse-tech {
-      0%, 100% { box-shadow: 0 0 8px #22d3ee; }
-      50% { box-shadow: 0 0 20px #0ea5e9; }
-    }
-    .btn-pulse-tech {
-      animation: pulse-tech 3s ease-in-out infinite;
-    }
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      will-change: opacity, transform;
-    }
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: none;
-    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden fade-in-section">
+  <!-- Header section -->
+  <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden">
     <div class="flex justify-center items-center gap-6 mb-4">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-cyan-400" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
         <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
@@ -67,10 +48,9 @@
       <h1 class="text-4xl md:text-5xl font-bold">JoVi System</h1>
     </div>
     <p class="text-lg md:text-xl mb-6">Más que un sistema, tu aliado digital</p>
-    <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition btn-pulse-tech">
-      Solicita tu demo gratis
-    </a>
+    <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition">Solicita tu demo gratis</a>
 
+    <!-- Animaciones -->
     <div class="absolute top-10 left-10 opacity-30 animate-float-slow">
       <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-12 h-12" />
     </div>
@@ -82,122 +62,110 @@
     </div>
   </section>
 
-  <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto fade-in-section">
-    <h2 class="text-3xl font-bold text-center mb-10">Nuestros Servicios</h2>
-    <div class="grid md:grid-cols-2 gap-8 mx-auto max-w-4xl">
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055644.png" alt="Puntos de Venta" class="mx-auto mb-4 w-20 h-20" />
-        <h3 class="text-xl font-semibold mb-2">Puntos de Venta</h3>
-        <p>Sistemas modernos y fáciles de usar para controlar tus ventas en tiempo real.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center">
-        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Inventario y Reportes" class="mx-auto mb-4 w-20 h-20" />
-        <h3 class="text-xl font-semibold mb-2">Inventario y Reportes</h3>
-        <p>Controla tu inventario y genera reportes automáticos para tomar mejores decisiones.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center md:col-span-2">
-        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Soporte" class="mx-auto mb-4 w-20 h-20" />
-        <h3 class="text-xl font-semibold mb-2">Soporte y Capacitación</h3>
-        <p>Asistencia 24 horas, entrenamiento personalizado para tu equipo y soporte técnico continuo.</p>
+  <!-- Sección de planes con pestañas -->
+  <section id="planes" class="bg-gray-100 py-16 px-4 max-w-6xl mx-auto rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes de Puntos de Venta</h2>
+
+    <div class="flex justify-center mb-8 space-x-4">
+      <button id="tab-pc" class="px-6 py-2 font-semibold border-b-4 border-cyan-500 text-cyan-600 focus:outline-none">Para PC</button>
+      <button id="tab-tablet" class="px-6 py-2 font-semibold border-b-4 border-transparent hover:border-cyan-400 text-gray-600 focus:outline-none">Para Tablets</button>
+    </div>
+
+    <!-- Contenido de PC -->
+    <div id="content-pc">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+            <li>Cuenta con:</li>
+            <li>CPU</li>
+            <li>Monitor de 17</li>
+            <li>Teclado</li>
+            <li>Mouse</li>
+            <li>Caja registradora</li>
+            <li>Printer 58mm</li>
+            <li>1 cable de video</li>
+            <li>2 cables de corriente</li>
+            <li>Soporte básico</li>
+            <li>Capacitación inicial</li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$13,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Avanzado</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+            <li>Cuenta con:</li>
+            <li>CPU</li>
+            <li>Monitor de 19</li>
+            <li>Teclado</li>
+            <li>Mouse</li>
+            <li>Caja registradora</li>
+            <li>Printer térmico 80 mm</li>
+            <li>Lector de código de barra</li>
+            <li>1 cable de video</li>
+            <li>2 cables de corriente</li>
+            <li>Soporte prioritario 24/7</li>
+            <li>Entrenamiento personalizado continuo</li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$17,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Planes para PC -->
-  <section id="planes" class="bg-gray-100 py-16 px-4 max-w-6xl mx-auto rounded-lg shadow-lg fade-in-section">
-    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes para PC</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
-        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico</h3>
-        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li>Cuenta con:
-            <ul class="list-disc list-inside">
-              <li>CPU</li>
-              <li>Monitor de 17</li>
-              <li>Teclado</li>
-              <li>Mouse</li>
-              <li>Caja registradora</li>
-              <li>Printer 58mm</li>
-              <li>1 cable de video</li>
-              <li>2 Cables de Corriente</li>
-            </ul>
-          </li>
-          <li>1 terminal</li>
-          <li>Soporte básico</li>
-          <li>Capacitación inicial</li>
-        </ul>
-        <p class="text-center text-3xl font-extrabold text-gray-900">RD$13,990</p>
-        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg">
-        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Avanzado</h3>
-        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li>Cuenta con:
-            <ul class="list-disc list-inside">
-              <li>CPU</li>
-              <li>Monitor de 19</li>
-              <li>Teclado</li>
-              <li>Mouse</li>
-              <li>Caja registradora</li>
-              <li>Printer térmico 80 mm</li>
-              <li>Lector de código de barra</li>
-              <li>1 cable de video</li>
-              <li>2 cables de corriente</li>
-            </ul>
-          </li>
-          <li>Soporte prioritario 24/7</li>
-          <li>Entrenamiento personalizado continuo</li>
-        </ul>
-        <p class="text-center text-3xl font-extrabold text-gray-900">RD$17,990</p>
-        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+    <!-- Contenido de Tablets (oculto por defecto) -->
+    <div id="content-tablet" class="hidden">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico (con Tablet)</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+            <li>Cuenta con:</li>
+            <li>Tablet incluida</li>
+            <li>CPU</li>
+            <li>Monitor de 17</li>
+            <li>Teclado</li>
+            <li>Mouse</li>
+            <li>Caja registradora</li>
+            <li>Printer 58mm</li>
+            <li>1 cable de video</li>
+            <li>2 cables de corriente</li>
+            <li>Soporte básico</li>
+            <li>Capacitación inicial</li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$10,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico (sin Tablet)</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+            <li>Cuenta con:</li>
+            <li>CPU</li>
+            <li>Monitor de 17</li>
+            <li>Teclado</li>
+            <li>Mouse</li>
+            <li>Caja registradora</li>
+            <li>Printer 58mm</li>
+            <li>1 cable de video</li>
+            <li>2 cables de corriente</li>
+            <li>Soporte básico</li>
+            <li>Capacitación inicial</li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$6,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
       </div>
     </div>
+
   </section>
 
-  <!-- Planes para Tablets -->
-  <section id="planes-tablets" class="py-16 px-4 max-w-6xl mx-auto fade-in-section">
-    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes para Tablets</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
-        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Con Tablet</h3>
-        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li>Incluye:
-            <ul class="list-disc list-inside">
-              <li>Tablet</li>
-              <li>Printer 58mm</li>
-              <li>Sistema punto de venta</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="text-center text-3xl font-extrabold text-gray-900">RD$10,990</p>
-        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
-        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Sin Tablet</h3>
-        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li>Incluye:
-            <ul class="list-disc list-inside">
-              <li>Sistema punto de venta</li>
-              <li>Printer 58mm</li>
-            </ul>
-          </li>
-        </ul>
-        <p class="text-center text-3xl font-extrabold text-gray-900">RD$6,990</p>
-        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="computacion" class="py-16 px-4 max-w-6xl mx-auto fade-in-section">
+  <!-- Resto del contenido (tecnología, nosotros, contacto, footer) igual que antes -->
+  <section id="computacion" class="py-16 px-4 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Tecnología a tu alcance</h2>
     <div class="flex justify-center gap-12 flex-wrap">
-      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-28 h-28 animate-float-slow" />
-      <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-28 h-28 animate-float" />
-      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-28 h-28 animate-float-slower" />
+      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-28 h-28" />
+      <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-28 h-28" />
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-28 h-28" />
     </div>
     <p class="text-center mt-8 text-gray-700 max-w-3xl mx-auto">
       Equipos y tecnología moderna para que tu negocio funcione sin interrupciones. 
@@ -205,7 +173,7 @@
     </p>
   </section>
 
-  <section id="nosotros" class="py-16 px-4 max-w-4xl mx-auto fade-in-section">
+  <section id="nosotros" class="py-16 px-4 max-w-4xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-6">Sobre Nosotros</h2>
     <p class="text-center text-lg">JoVi System es una empresa de tecnología enfocada en soluciones para comercios de todos los tamaños. Nuestra misión es facilitar la gestión de negocios a través de sistemas intuitivos, confiables y accesibles.</p>
     <div class="mt-10 space-y-8">
@@ -230,7 +198,7 @@
     </div>
   </section>
 
-  <section id="contacto" class="bg-gray-900 text-white py-16 px-4 fade-in-section">
+  <section id="contacto" class="bg-gray-900 text-white py-16 px-4">
     <h2 class="text-3xl font-bold text-center mb-6">Contáctanos</h2>
     <p class="text-center mb-6">¿Quieres más información o agendar una demo? Escríbenos ahora.</p>
     <form class="max-w-xl mx-auto grid gap-4">
@@ -241,10 +209,11 @@
     </form>
   </section>
 
-  <footer class="bg-gray-100 text-center text-sm py-6 fade-in-section">
+  <footer class="bg-gray-100 text-center text-sm py-6">
     &copy; 2025 JoVi System. Todos los derechos reservados.
   </footer>
 
+  <!-- Botón flotante WhatsApp -->
   <a href="https://wa.me/18492494991" target="_blank" rel="noopener noreferrer" 
      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition"
      aria-label="Chat por WhatsApp">
@@ -254,19 +223,24 @@
   </a>
 
   <script>
-    // Animación fade-in al hacer scroll
-    const faders = document.querySelectorAll('.fade-in-section');
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
+    const tabPc = document.getElementById('tab-pc');
+    const tabTablet = document.getElementById('tab-tablet');
+    const contentPc = document.getElementById('content-pc');
+    const contentTablet = document.getElementById('content-tablet');
 
+    tabPc.addEventListener('click', () => {
+      tabPc.classList.add('border-cyan-500', 'text-cyan-600');
+      tabTablet.classList.remove('border-cyan-500', 'text-cyan-600');
+      contentPc.classList.remove('hidden');
+      contentTablet.classList.add('hidden');
+    });
+
+    tabTablet.addEventListener('click', () => {
+      tabTablet.classList.add('border-cyan-500', 'text-cyan-600');
+      tabPc.classList.remove('border-cyan-500', 'text-cyan-600');
+      contentTablet.classList.remove('hidden');
+      contentPc.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
