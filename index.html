@@ -9,178 +9,368 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .font-orbitron { font-family: 'Orbitron', sans-serif; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Nuevas fuentes para el título */
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Animaciones flotantes existentes */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes float-slower {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+    .animate-float-slow {
+      animation: float-slow 6s ease-in-out infinite;
+    }
+    .animate-float-slower {
+      animation: float-slower 8s ease-in-out infinite;
+    }
+
+    /* Animaciones tecnológicas mejoradas y nuevas */
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.7); /* Más intenso */
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 40px 15px rgba(0, 255, 255, 1); /* Mucho más intenso */
+        transform: scale(1.12); /* Ligeramente más grande */
+      }
+    }
+    .glow-pulse {
+      animation: pulse-glow 3s ease-in-out infinite;
+      border-radius: 50%; /* Asegura el efecto circular para el SVG también */
+    }
+    
+    /* Animación para iconos al pasar mouse - más intenso */
     .hover-glow:hover {
-      box-shadow: 0 0 25px 10px #06b6d4;
-      transform: scale(1.05);
+      box-shadow: 0 0 25px 10px #06b6d4; /* Más intenso */
+      transform: scale(1.25); /* Más grande */
       transition: all 0.3s ease;
     }
-    /* Animación de íconos flotantes */
-    .floating-icon {
+
+    /* Animación de Rayos - Colores más vivos */
+    @keyframes tech-rays {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+    .tech-rays-bg {
+      background: linear-gradient(45deg, rgba(6,182,212,0.2) 0%, rgba(6,182,212,0.7) 50%, rgba(6,182,212,0.2) 100%); /* Más visible */
+      background-size: 200% 200%;
+      animation: tech-rays 10s linear infinite;
+    }
+
+    /* Animación de Matriz Binaria - Más densa y visible */
+    @keyframes binary-matrix {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+    .binary-matrix-bg {
+      background: 
+        repeating-linear-gradient(-45deg, 
+          rgba(0,255,255,0.09) 0px, /* Más visible */
+          rgba(0,255,255,0.09) 1px, 
+          transparent 1px, 
+          transparent 15px), /* Menos espacio, más denso */
+        repeating-linear-gradient(45deg, 
+          rgba(0,255,255,0.09) 0px, 
+          rgba(0,255,255,0.09) 1px, 
+          transparent 1px, 
+          transparent 15px);
+      background-size: 30px 30px; /* Tamaño de celda más pequeño */
+      animation: binary-matrix 15s linear infinite; /* Más rápido */
+    }
+
+    /* Animación de Iconos giratorios */
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-slow {
+      animation: rotate-slow 20s linear infinite;
+    }
+    @keyframes rotate-fast {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-fast {
+      animation: rotate-fast 10s linear infinite;
+    }
+    @keyframes rotate-slower {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-slower {
+      animation: rotate-slower 30s linear infinite;
+    }
+
+
+    /* Nueva animación de grid de fondo - Más notorio */
+    @keyframes grid-pulse {
+      0%, 100% { background-position: 0% 0%; opacity: 0.08; } /* Opacidad ligeramente aumentada */
+      50% { background-position: 50% 50%; opacity: 0.2; } /* Opacidad más alta en el medio */
+    }
+    .grid-bg {
+      background: 
+        linear-gradient(to right, rgba(0,255,255,0.15) 1px, transparent 1px), /* Líneas más visibles */
+        linear-gradient(to bottom, rgba(0,255,255,0.15) 1px, transparent 1px);
+      background-size: 25px 25px; /* Tamaño de celda más pequeño */
+      animation: grid-pulse 12s ease-in-out infinite; /* Más rápido */
+    }
+
+    /* Animación de barrido de color en el encabezado */
+    @keyframes color-sweep {
+      0% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 5%, transparent 100%); }
+      50% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 95%, transparent 100%); }
+      100% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 5%, transparent 100%); }
+    }
+    .color-sweep-overlay {
       position: absolute;
-      animation: floaty 6s ease-in-out infinite;
-      opacity: 0.7;
-      transition: opacity 0.3s;
+      inset: 0;
+      pointer-events: none;
+      animation: color-sweep 15s ease-in-out infinite;
     }
-    .floating-icon:hover {
-      opacity: 1;
-      animation-play-state: paused;
-      transform: scale(1.2);
-      cursor: default;
-    }
-    @keyframes floaty {
-      0%, 100% { transform: translateY(0) }
-      50% { transform: translateY(-15px) }
-    }
-    @media (max-width: 639px) {
-      .floating-icon { display: none; }
-      .text-4xl { font-size: 2rem; }
-      .text-3xl { font-size: 1.5rem; }
-      .text-2xl { font-size: 1.25rem; }
-    }
+
   </style>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" />
 </head>
-<body class="bg-gray-50 text-gray-800 relative">
+<body class="bg-gray-50 text-gray-800">
+  <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-10 tech-rays-bg"></div>
+    <div class="absolute inset-0 z-0 opacity-5 binary-matrix-bg"></div>
+    <div class="absolute inset-0 z-0 opacity-10 grid-bg"></div>
+    <div class="color-sweep-overlay"></div> <div class="relative z-10 flex justify-center items-center gap-6 mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-cyan-400 glow-pulse" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
+        <rect x="16" y="46" width="32" height="4" rx="1" ry="1" />
+        <line x1="32" y1="50" x2="32" y2="58" />
+      </svg>
+      
+      <h1 class="text-6xl md:text-7xl font-bold tracking-tight drop-shadow-lg font-orbitron">JoVi System</h1>
+    </div>
+    <p class="relative z-10 text-lg md:text-xl mb-6">Más que un sistema, tu aliado digital</p>
+    <div class="absolute top-1/2 right-10 opacity-20 animate-float hover-glow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-14 h-14" />
+    </div>
+    <div class="absolute bottom-10 left-1/2 opacity-25 animate-float-slower hover-glow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-16 h-16" />
+    </div>
 
-  <!-- Íconos flotantes de computadoras y tecnología en hero -->
-  <svg class="floating-icon top-10 left-10 w-12 h-12 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" stroke="currentColor">
-    <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
-    <rect x="16" y="46" width="32" height="4" rx="1" ry="1" />
-    <line x1="32" y1="50" x2="32" y2="58" />
-  </svg>
-  <svg class="floating-icon top-20 right-12 w-10 h-10 text-cyan-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" stroke="currentColor">
-    <rect x="12" y="16" width="40" height="28" rx="2" ry="2" />
-    <line x1="12" y1="44" x2="52" y2="44" />
-    <line x1="24" y1="44" x2="24" y2="56" />
-    <line x1="40" y1="44" x2="40" y2="56" />
-  </svg>
-  <svg class="floating-icon bottom-20 left-14 w-14 h-14 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" stroke="currentColor">
-    <rect x="10" y="12" width="44" height="34" rx="4" ry="4" />
-    <circle cx="32" cy="40" r="6" />
-  </svg>
+    <div class="absolute top-5 right-5 opacity-40 animate-float animate-rotate-fast z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/3592/3592473.png" alt="Engranaje" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-5 left-5 opacity-35 animate-float-slow animate-rotate-slow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Circuitos" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-1/4 left-5 opacity-30 animate-float-slower z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920367.png" alt="Datos" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-1/4 right-5 opacity-25 animate-float z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149092.png" alt="Cloud" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-1/3 right-1/4 opacity-20 animate-float animate-rotate-slower z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920377.png" alt="Chip" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-1/3 left-1/4 opacity-18 animate-float-fast animate-rotate-fast z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/189/189912.png" alt="Atomo" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-20 left-1/4 opacity-22 animate-float-slow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Candado" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-20 right-1/4 opacity-28 animate-float z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1004/1004945.png" alt="Rayo" class="w-10 h-10 text-cyan-300" />
+    </div>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-16 sm:py-24 px-4 text-center relative z-10">
-    <h1 class="text-5xl sm:text-7xl font-bold font-orbitron mb-4">JoVi System</h1>
-    <p class="text-xl sm:text-2xl">Más que un sistema, tu aliado digital</p>
   </section>
 
-  <!-- Servicios -->
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-white p-8 rounded-lg shadow-lg text-center hover-glow">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055644.png" alt="Puntos de Venta" class="mx-auto mb-6 w-24 h-24" />
-        <h3 class="text-2xl font-semibold mb-2">Puntos de Venta</h3>
-        <p>Controla tus ventas con sistemas modernos y fáciles de usar.</p>
+  <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Nuestros Servicios</h2>
+    <div class="grid md:grid-cols-2 gap-8 mx-auto max-w-4xl">
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center hover-glow transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055644.png" alt="Puntos de Venta" class="mx-auto mb-4 w-20 h-20" />
+        <h3 class="text-xl font-semibold mb-2">Puntos de Venta</h3>
+        <p>Sistemas modernos y fáciles de usar para controlar tus ventas en tiempo real.</p>
       </div>
-      <div class="bg-white p-8 rounded-lg shadow-lg text-center hover-glow">
-        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Inventario" class="mx-auto mb-6 w-24 h-24" />
-        <h3 class="text-2xl font-semibold mb-2">Inventario y Reportes</h3>
-        <p>Gestiona inventarios y genera reportes automáticos para tu negocio.</p>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center hover-glow transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Inventario y Reportes" class="mx-auto mb-4 w-20 h-20" />
+        <h3 class="text-xl font-semibold mb-2">Inventario y Reportes</h3>
+        <p>Controla tu inventario y genera reportes automáticos para tomar mejores decisiones.</p>
       </div>
-      <div class="bg-white p-8 rounded-lg shadow-lg text-center hover-glow">
-        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Soporte" class="mx-auto mb-6 w-24 h-24" />
-        <h3 class="text-2xl font-semibold mb-2">Soporte y Capacitación</h3>
-        <p>Asistencia 24/7 y entrenamiento personalizado para ti y tu equipo.</p>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center md:col-span-2 hover-glow transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Soporte" class="mx-auto mb-4 w-20 h-20" />
+        <h3 class="text-xl font-semibold mb-2">Soporte y Capacitación</h3>
+        <p>Asistencia 24 horas, entrenamiento personalizado para tu equipo y soporte técnico continuo.</p>
       </div>
     </div>
   </section>
 
-  <!-- Planes -->
-  <section class="bg-gray-100 py-16 px-6 max-w-6xl mx-auto rounded-lg shadow-md">
-    <h2 class="text-3xl font-bold text-center mb-12">Planes de Puntos de Venta</h2>
-    <div class="flex justify-center space-x-6 mb-10 overflow-x-auto">
-      <button id="btn-pc" onclick="showTab('pc')" class="px-6 py-3 border-b-4 border-cyan-600 font-semibold text-cyan-700 hover:text-cyan-900 transition">PC</button>
-      <button id="btn-tablet" onclick="showTab('tablet')" class="px-6 py-3 border-b-4 border-transparent text-gray-600 hover:text-cyan-700 transition">Tablets</button>
-      <button id="btn-solo" onclick="showTab('solo')" class="px-6 py-3 border-b-4 border-transparent text-gray-600 hover:text-cyan-700 transition">Solo sistema</button>
+  <section id="planes" class="bg-gray-100 py-16 px-4 max-w-6xl mx-auto rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes de Puntos de Venta</h2>
+
+    <div class="flex justify-center mb-8 space-x-4">
+      <button id="tab-pc" class="px-6 py-2 rounded-t-lg border-b-4 border-cyan-500 font-semibold text-cyan-600 focus:outline-none">PC</button>
+      <button id="tab-tablet" class="px-6 py-2 rounded-t-lg border-b-4 border-transparent text-gray-600 hover:text-cyan-600 focus:outline-none">Tablets + impresora</button>
+      <button id="tab-solo" class="px-6 py-2 rounded-t-lg border-b-4 border-transparent text-gray-600 hover:text-cyan-600 focus:outline-none">Solo sistema + impresora</button>
     </div>
 
-    <div id="tab-pc" class="tab-content active">
+    <div id="content-pc" class="tab-content">
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-8 rounded-lg border border-gray-300 shadow hover-glow">
-          <h3 class="text-2xl font-bold mb-6 text-center">Plan Básico</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6">
-            <li>CPU</li>
-            <li>Monitor 17"</li>
-            <li>Teclado y Mouse</li>
-            <li>1 cable VGA</li>
-            <li>2 cables de power</li>
-            <li>Caja registradora</li>
-            <li>Printer térmico 58mm</li>
-            <li>Sistema de facturación</li>
+        <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md hover-glow transition">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
+            <li>Cuenta con:
+              <ul class="list-disc list-inside pl-5 mt-2 space-y-1">
+                <li>CPU</li>
+                <li>Monitor de 17"</li>
+                <li>Teclado</li>
+                <li>Mouse</li>
+                <li>Caja registradora</li>
+                <li>Printer 58mm</li>
+                <li>1 cable de video</li>
+                <li>2 cables de corriente</li>
+              </ul>
+            </li>
+            <li>1 terminal</li>
+            <li>Soporte básico</li>
+            <li>Capacitación inicial</li>
           </ul>
-          <p class="text-center text-3xl font-extrabold text-cyan-700">RD$13,990</p>
-          <p class="text-center mt-2 text-gray-600">Pago único</p>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$13,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
         </div>
-        <div class="bg-white p-8 rounded-lg border border-gray-300 shadow hover-glow">
-          <h3 class="text-2xl font-bold mb-6 text-center">Plan Avanzado</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6">
-            <li>CPU</li>
-            <li>Monitor 19"</li>
-            <li>Teclado y Mouse</li>
-            <li>Lector de códigos</li>
-            <li>Printer 80mm</li>
-            <li>Entrenamiento personalizado</li>
-            <li>Soporte 24/7</li>
-            <li>Sistema de facturación</li>
+
+        <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg hover-glow transition">
+          <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Avanzado</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
+            <li>Cuenta con:
+              <ul class="list-disc list-inside pl-5 mt-2 space-y-1">
+                <li>CPU</li>
+                <li>Monitor de 19"</li>
+                <li>Teclado</li>
+                <li>Mouse</li>
+                <li>Caja registradora</li>
+                <li>Printer térmico 80 mm</li>
+                <li>Lector de código de barra</li>
+                <li>1 cable de video</li>
+                <li>2 cables de corriente</li>
+              </ul>
+            </li>
+            <li>Soporte prioritario 24/7</li>
+            <li>Entrenamiento personalizado continuo</li>
           </ul>
-          <p class="text-center text-3xl font-extrabold text-cyan-700">RD$17,990</p>
-          <p class="text-center mt-2 text-gray-600">Pago único</p>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$17,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
         </div>
       </div>
     </div>
 
-    <div id="tab-tablet" class="tab-content">
-      <div class="max-w-md mx-auto bg-white p-8 rounded-lg border border-gray-300 shadow hover-glow text-center">
-        <h3 class="text-2xl font-bold mb-6">Kit Tablet + Impresora</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6">
-          <li>Tablet 10"</li>
-          <li>Soporte</li>
-          <li>Printer Bluetooth 58mm</li>
-          <li>Sistema de facturación Android</li>
-        </ul>
-        <p class="text-3xl font-extrabold text-cyan-700">RD$10,990</p>
-        <p class="mt-2 text-gray-600">Pago único</p>
+    <div id="content-tablet" class="tab-content hidden">
+      <div class="max-w-md mx-auto">
+        <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md text-center hover-glow transition">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900">Plan Tablet + impresora</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
+            <li>Cuenta con:
+              <ul class="list-disc list-inside pl-5 mt-2 space-y-1">
+                <li>Tablet</li>
+                <li>Impresora térmica 58 mm</li>
+                <li>Sistema de punto de venta completo</li>
+                <li>Soporte básico</li>
+                <li>Capacitación inicial</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$10,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
       </div>
     </div>
 
-    <div id="tab-solo" class="tab-content">
-      <div class="max-w-md mx-auto bg-white p-8 rounded-lg border border-gray-300 shadow hover-glow text-center">
-        <h3 class="text-2xl font-bold mb-6">Sistema + Impresora</h3>
-        <ul class="list-disc list-inside text-gray-700 space-y-1 mb-6">
-          <li>Sistema PC o Android</li>
-          <li>Printer térmico 58mm</li>
-          <li>Instalación remota</li>
-        </ul>
-        <p class="text-3xl font-extrabold text-cyan-700">RD$6,990</p>
-        <p class="mt-2 text-gray-600">Pago único</p>
+    <div id="content-solo" class="tab-content hidden">
+      <div class="max-w-md mx-auto">
+        <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md text-center hover-glow transition">
+          <h3 class="text-2xl font-bold mb-4 text-gray-900">Plan Solo sistema + impresora</h3>
+          <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
+            <li>Cuenta con:
+              <ul class="list-disc list-inside pl-5 mt-2 space-y-1">
+                <li>Sistema de punto de venta completo</li>
+                <li>Impresora térmica 58 mm</li>
+                <li>Soporte básico</li>
+                <li>Capacitación inicial</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="text-center text-3xl font-extrabold text-gray-900">RD$6,990</p>
+          <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+        </div>
       </div>
     </div>
+
+    <script>
+      // Pestañas funcionales
+      const tabs = document.querySelectorAll('[id^="tab-"]');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Quitar estilos activos
+          tabs.forEach(t => {
+            t.classList.remove('border-cyan-500', 'text-cyan-600');
+            t.classList.add('border-transparent', 'text-gray-600');
+          });
+          // Ocultar todos los contenidos
+          contents.forEach(c => c.classList.add('hidden'));
+
+          // Activar tab clickeada y mostrar contenido
+          tab.classList.add('border-cyan-500', 'text-cyan-600');
+          tab.classList.remove('border-transparent', 'text-gray-600');
+          const contentId = tab.id.replace('tab', 'content');
+          document.getElementById(contentId).classList.remove('hidden');
+        });
+      });
+    </script>
   </section>
 
-  <!-- Nosotros -->
-  <section class="py-16 px-6 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">Sobre Nosotros</h2>
-    <p class="text-center text-lg max-w-3xl mx-auto">
-      JoVi System es una empresa de tecnología enfocada en soluciones para comercios de todos los tamaños. Nuestra misión es facilitar la gestión de negocios a través de sistemas intuitivos, confiables y accesibles.
+  <section id="computacion" class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Tecnología a tu alcance</h2>
+    <div class="flex justify-center gap-12 flex-wrap">
+      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-28 h-28 hover-glow transition" />
+      <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-28 h-28 hover-glow transition" />
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-28 h-28 hover-glow transition" />
+    </div>
+    <p class="text-center mt-8 text-gray-700 max-w-3xl mx-auto">
+      Equipos y tecnología moderna para que tu negocio funcione sin interrupciones. 
+      Contamos con hardware y software integrados para ofrecerte la mejor solución.
     </p>
-    <div class="mt-12 space-y-10 max-w-3xl mx-auto">
+  </section>
+
+  <section id="nosotros" class="py-16 px-4 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-6">Sobre Nosotros</h2>
+    <p class="text-center text-lg">JoVi System es una empresa de tecnología enfocada en soluciones para comercios de todos los tamaños. Nuestra misión es facilitar la gestión de negocios a través de sistemas intuitivos, confiables y accesibles.</p>
+    <div class="mt-10 space-y-8">
       <div>
-        <h3 class="text-xl font-semibold mb-3">🎯 Misión</h3>
+        <h3 class="text-xl font-semibold mb-2">🎯 Misión</h3>
         <p>Ofrecer soluciones integrales de tecnología para puntos de venta y facturación, que sean accesibles, seguras y personalizables, facilitando la gestión comercial de pequeñas y medianas empresas en República Dominicana y el Caribe.</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold mb-3">👁️‍🗨️ Visión</h3>
+        <h3 class="text-xl font-semibold mb-2">👁️‍🗨️ Visión</h3>
         <p>Ser una empresa líder en soluciones tecnológicas para comercios, reconocida por la innovación, el servicio cercano al cliente y el impacto positivo en la transformación digital de nuestros usuarios.</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold mb-3">🌟 Valores</h3>
-        <ul class="list-disc list-inside space-y-2">
+        <h3 class="text-xl font-semibold mb-2">🌟 Valores</h3>
+        <ul class="list-disc list-inside space-y-1">
           <li><strong>Innovación:</strong> Nos adaptamos a los cambios y mejoramos constantemente.</li>
           <li><strong>Compromiso:</strong> Acompañamos a nuestros clientes antes, durante y después de cada implementación.</li>
           <li><strong>Confiabilidad:</strong> Ofrecemos herramientas seguras y estables.</li>
@@ -191,27 +381,26 @@
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section class="bg-gray-900 text-white py-16 px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
-    <p class="text-center mb-8 max-w-xl mx-auto">¿Quieres más información o agendar una demo? Escríbenos ahora.</p>
-    <div class="text-center mb-10">
-      <a href="#contacto" class="bg-white text-gray-900 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100 transition inline-block">Solicita tu demo gratis</a>
+  <section id="contacto" class="bg-gray-900 text-white py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-6">Contáctanos</h2>
+    <p class="text-center mb-6">¿Quieres más información o agendar una demo? Escríbenos ahora.</p>
+    
+    <div class="text-center mb-8">
+      <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition inline-block">Solicita tu demo gratis</a>
     </div>
-    <form class="max-w-xl mx-auto grid gap-6" id="contacto" onsubmit="return false">
-      <input type="text" placeholder="Nombre" class="p-4 rounded text-gray-900" required />
-      <input type="email" placeholder="Correo electrónico" class="p-4 rounded text-gray-900" required />
-      <textarea rows="5" placeholder="Mensaje" class="p-4 rounded text-gray-900" required></textarea>
-      <button type="submit" class="bg-white text-gray-900 font-semibold px-8 py-3 rounded shadow hover:bg-gray-100 transition">Enviar mensaje</button>
+
+    <form class="max-w-xl mx-auto grid gap-4">
+      <input type="text" placeholder="Nombre" class="p-3 rounded text-gray-900" required />
+      <input type="email" placeholder="Correo electrónico" class="p-3 rounded text-gray-900" required />
+      <textarea rows="4" placeholder="Mensaje" class="p-3 rounded text-gray-900" required></textarea>
+      <button type="submit" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded shadow hover:bg-gray-100 transition">Enviar mensaje</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-gray-100 text-center text-sm py-6">
     &copy; 2025 JoVi System. Todos los derechos reservados.
   </footer>
 
-  <!-- WhatsApp -->
   <a href="https://wa.me/18492494991" target="_blank" rel="noopener noreferrer" 
      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition"
      aria-label="Chat por WhatsApp">
@@ -220,18 +409,5 @@
       <path d="M16.54 14.86l-1.4-.68a.53.53 0 00-.58.13l-.89 1.07a7.89 7.89 0 01-3.74-3.8l1.06-.91a.53.53 0 00.13-.58l-.66-1.42a.53.53 0 00-.65-.27 5.58 5.58 0 00-2.77 2.84 5.61 5.61 0 003.2 7.74.53.53 0 00.57-.1l1.04-1.03a.53.53 0 00.13-.57l-1.06-1.68z"/>
     </svg>
   </a>
-
-  <script>
-    function showTab(tab) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.getElementById('tab-' + tab).classList.add('active');
-      // Cambiar el estilo de los botones
-      document.getElementById('btn-pc').classList.remove('border-cyan-600', 'text-cyan-700');
-      document.getElementById('btn-tablet').classList.remove('border-cyan-600', 'text-cyan-700');
-      document.getElementById('btn-solo').classList.remove('border-cyan-600', 'text-cyan-700');
-
-      document.getElementById('btn-' + tab).classList.add('border-cyan-600', 'text-cyan-700');
-    }
-  </script>
 </body>
 </html>
