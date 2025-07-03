@@ -111,9 +111,11 @@
     </div>
   </section>
 
+  <!-- Planes para PC -->
   <section id="planes" class="bg-gray-100 py-16 px-4 max-w-6xl mx-auto rounded-lg shadow-lg fade-in-section">
-    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes de Puntos de Venta</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes para PC</h2>
     <div class="grid md:grid-cols-2 gap-8">
+      <!-- Plan Básico -->
       <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
         <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico</h3>
         <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
@@ -136,6 +138,8 @@
         <p class="text-center text-3xl font-extrabold text-gray-900">RD$13,990</p>
         <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
       </div>
+
+      <!-- Plan Avanzado -->
       <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg">
         <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Avanzado</h3>
         <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
@@ -158,6 +162,45 @@
         <p class="text-center text-3xl font-extrabold text-gray-900">RD$17,990</p>
         <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Planes para Tablets -->
+  <section id="planes-tablets" class="py-16 px-4 max-w-6xl mx-auto fade-in-section">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes para Tablets</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <!-- Plan con Tablet -->
+      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
+        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Con Tablet</h3>
+        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+          <li>Incluye:
+            <ul class="list-disc list-inside">
+              <li>Tablet</li>
+              <li>Printer 58mm</li>
+              <li>Sistema punto de venta</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="text-center text-3xl font-extrabold text-gray-900">RD$10,990</p>
+        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+      </div>
+
+      <!-- Plan sin Tablet -->
+      <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md">
+        <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Sin Tablet</h3>
+        <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700">
+          <li>Incluye:
+            <ul class="list-disc list-inside">
+              <li>Sistema punto de venta</li>
+              <li>Printer 58mm</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="text-center text-3xl font-extrabold text-gray-900">RD$6,990</p>
+        <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
+      </div>
+
     </div>
   </section>
 
@@ -224,11 +267,11 @@
   </a>
 
   <script>
-    // Scroll fade-in animation
+    // Aparece animación fade-in al hacer scroll
     const faders = document.querySelectorAll('.fade-in-section');
 
     const appearOptions = {
-      threshold: 0.1,
+      threshold: 0.2,
       rootMargin: "0px 0px -50px 0px"
     };
 
@@ -247,5 +290,6 @@
       appearOnScroll.observe(fader);
     });
   </script>
+
 </body>
 </html>
