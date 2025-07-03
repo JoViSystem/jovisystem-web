@@ -58,7 +58,7 @@
     </div>
     <p class="text-lg md:text-xl mb-6">Más que un sistema, tu aliado digital</p>
 
-    <!-- Botón sin muñeco -->
+    <!-- Botón sin muñeco flotante -->
     <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition inline-block">
       Solicita tu demo gratis
     </a>
@@ -301,28 +301,5 @@
     </svg>
   </a>
 
-  <script>
-    // Pestañas funcionales
-    const tabs = document.querySelectorAll('[id^="tab-"]');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Quitar estilos activos
-        tabs.forEach(t => {
-          t.classList.remove('border-cyan-500', 'text-cyan-600');
-          t.classList.add('border-transparent', 'text-gray-600');
-        });
-        // Ocultar todos los contenidos
-        contents.forEach(c => c.classList.add('hidden'));
-
-        // Activar tab clickeada y mostrar contenido
-        tab.classList.add('border-cyan-500', 'text-cyan-600');
-        tab.classList.remove('border-transparent', 'text-gray-600');
-        const contentId = tab.id.replace('tab', 'content');
-        document.getElementById(contentId).classList.remove('hidden');
-      });
-    });
-  </script>
 </body>
 </html>
