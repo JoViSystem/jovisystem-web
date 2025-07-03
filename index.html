@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
     }
+    /* Nuevas fuentes para el título */
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
@@ -34,25 +39,26 @@
       animation: float-slower 8s ease-in-out infinite;
     }
 
-    /* Nuevas animaciones tecnológicas */
+    /* Animaciones tecnológicas mejoradas y nuevas */
     @keyframes pulse-glow {
       0%, 100% {
-        box-shadow: 0 0 8px 2px rgba(0, 255, 255, 0.5);
+        box-shadow: 0 0 10px 3px rgba(0, 255, 255, 0.6); /* Más intenso */
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 25px 8px rgba(0, 255, 255, 0.9); /* Incrementado */
-        transform: scale(1.08); /* Ligeramente más grande */
+        box-shadow: 0 0 30px 10px rgba(0, 255, 255, 0.95); /* Más intenso */
+        transform: scale(1.1); /* Ligeramente más grande */
       }
     }
     .glow-pulse {
       animation: pulse-glow 3s ease-in-out infinite;
-      border-radius: 50%;
+      border-radius: 50%; /* Asegura el efecto circular */
     }
-    /* Animación para iconos al pasar mouse */
+    
+    /* Animación para iconos al pasar mouse - más intenso */
     .hover-glow:hover {
-      box-shadow: 0 0 16px 6px #06b6d4; /* Incrementado */
-      transform: scale(1.15); /* Ligeramente más grande */
+      box-shadow: 0 0 20px 8px #06b6d4; /* Más intenso */
+      transform: scale(1.2); /* Más grande */
       transition: all 0.3s ease;
     }
 
@@ -62,7 +68,7 @@
       100% { background-position: 100% 100%; }
     }
     .tech-rays-bg {
-      background: linear-gradient(45deg, rgba(6,182,212,0.1) 0%, rgba(6,182,212,0.5) 50%, rgba(6,182,212,0.1) 100%);
+      background: linear-gradient(45deg, rgba(6,182,212,0.15) 0%, rgba(6,182,212,0.6) 50%, rgba(6,182,212,0.15) 100%); /* Más visible */
       background-size: 200% 200%;
       animation: tech-rays 10s linear infinite;
     }
@@ -75,17 +81,46 @@
     .binary-matrix-bg {
       background: 
         repeating-linear-gradient(-45deg, 
-          rgba(0,255,255,0.05) 0px, 
-          rgba(0,255,255,0.05) 1px, 
+          rgba(0,255,255,0.07) 0px, /* Más visible */
+          rgba(0,255,255,0.07) 1px, 
           transparent 1px, 
           transparent 20px),
         repeating-linear-gradient(45deg, 
-          rgba(0,255,255,0.05) 0px, 
-          rgba(0,255,255,0.05) 1px, 
+          rgba(0,255,255,0.07) 0px, 
+          rgba(0,255,255,0.07) 1px, 
           transparent 1px, 
           transparent 20px);
       background-size: 40px 40px;
       animation: binary-matrix 20s linear infinite;
+    }
+
+    /* Animación de Iconos giratorios */
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-slow {
+      animation: rotate-slow 20s linear infinite;
+    }
+    @keyframes rotate-fast {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-fast {
+      animation: rotate-fast 10s linear infinite;
+    }
+
+    /* Nueva animación de grid de fondo */
+    @keyframes grid-pulse {
+      0%, 100% { background-position: 0% 0%; opacity: 0.05; }
+      50% { background-position: 50% 50%; opacity: 0.15; }
+    }
+    .grid-bg {
+      background: 
+        linear-gradient(to right, rgba(0,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,255,255,0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: grid-pulse 15s ease-in-out infinite;
     }
 
   </style>
@@ -95,14 +130,10 @@
   <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden">
     <div class="absolute inset-0 z-0 opacity-10 tech-rays-bg"></div>
     <div class="absolute inset-0 z-0 opacity-5 binary-matrix-bg"></div>
-
-    <div class="relative z-10 flex justify-center items-center gap-6 mb-4">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-cyan-400 glow-pulse" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
-        <rect x="16" y="46" width="32" height="4" rx="1" ry="1" />
-        <line x1="32" y1="50" x2="32" y2="58" />
-      </svg>
-      <h1 class="text-6xl md:text-7xl font-bold tracking-tight drop-shadow-lg">JoVi System</h1>
+    <div class="absolute inset-0 z-0 opacity-10 grid-bg"></div> <div class="relative z-10 flex justify-center items-center gap-6 mb-4">
+      <img src="Logo JoVi System.jpg" alt="Logo JoVi System" class="w-28 h-28 object-contain glow-pulse rounded-full border-2 border-cyan-400" />
+      
+      <h1 class="text-6xl md:text-7xl font-bold tracking-tight drop-shadow-lg font-orbitron">JoVi System</h1>
     </div>
     <p class="relative z-10 text-lg md:text-xl mb-6">Más que un sistema, tu aliado digital</p>
     <a href="#contacto" class="relative z-10 bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition">Solicita tu demo gratis</a>
@@ -116,6 +147,20 @@
     <div class="absolute bottom-10 left-1/2 opacity-25 animate-float-slower hover-glow z-10">
       <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-16 h-16" />
     </div>
+
+    <div class="absolute top-5 right-5 opacity-40 animate-float animate-rotate-fast z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/3592/3592473.png" alt="Engranaje" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-5 left-5 opacity-35 animate-float-slow animate-rotate-slow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Circuitos" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-1/4 left-5 opacity-30 animate-float-slower z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920367.png" alt="Datos" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-1/4 right-5 opacity-25 animate-float z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149092.png" alt="Cloud" class="w-10 h-10 text-cyan-300" />
+    </div>
+
   </section>
 
   <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto">
