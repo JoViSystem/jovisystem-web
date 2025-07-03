@@ -5,63 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JoVi System</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
     }
+    /* Animaciones de flotación */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
-    @keyframes float-slow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    @keyframes float-slower {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .animate-float {
-      animation: float 4s ease-in-out infinite;
-    }
-    .animate-float-slow {
-      animation: float-slow 6s ease-in-out infinite;
-    }
-    .animate-float-slower {
-      animation: float-slower 8s ease-in-out infinite;
-    }
-
-    /* Nuevas animaciones tecnológicas */
     @keyframes pulse-glow {
       0%, 100% {
-        box-shadow: 0 0 8px 2px rgba(0, 255, 255, 0.5);
+        box-shadow: 0 0 8px 2px rgba(0, 255, 255, 0.6);
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 20px 5px rgba(0, 255, 255, 0.9);
-        transform: scale(1.05);
+        box-shadow: 0 0 20px 6px rgba(0, 255, 255, 1);
+        transform: scale(1.1);
       }
+    }
+    /* Clases de animación */
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
     }
     .glow-pulse {
       animation: pulse-glow 3s ease-in-out infinite;
       border-radius: 50%;
     }
-    /* Animación para iconos al pasar mouse */
     .hover-glow:hover {
-      box-shadow: 0 0 12px 4px #06b6d4;
-      transform: scale(1.1);
+      box-shadow: 0 0 15px 4px #06b6d4;
+      transform: scale(1.15);
       transition: all 0.3s ease;
     }
+    /* Posiciones absolutas para iconos flotantes en el header */
+    .float-icon {
+      position: absolute;
+      opacity: 0.25;
+      filter: drop-shadow(0 0 2px cyan);
+    }
+    .float-top-left {
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      animation: float 5s ease-in-out infinite;
+    }
+    .float-top-right {
+      top: 50px;
+      right: 40px;
+      width: 64px;
+      height: 64px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .float-bottom-center {
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 56px;
+      animation: float 7s ease-in-out infinite;
+    }
   </style>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" />
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden">
+
+  <!-- SECCIÓN HEADER -->
+  <section class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-20 px-6 text-center relative overflow-hidden">
+
+    <!-- Título y frase -->
     <div class="flex justify-center items-center gap-6 mb-4">
-      <!-- Logo SVG: Computadora simple -->
       <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-cyan-400 glow-pulse" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
         <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
         <rect x="16" y="46" width="32" height="4" rx="1" ry="1" />
@@ -69,22 +82,19 @@
       </svg>
       <h1 class="text-4xl md:text-5xl font-bold">JoVi System</h1>
     </div>
+
     <p class="text-lg md:text-xl mb-6">Más que un sistema, tu aliado digital</p>
+
     <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition">Solicita tu demo gratis</a>
 
-    <!-- Animaciones flotantes -->
-    <div class="absolute top-10 left-10 opacity-30 animate-float-slow hover-glow">
-      <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-12 h-12" />
-    </div>
-    <div class="absolute top-1/2 right-10 opacity-20 animate-float hover-glow">
-      <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-14 h-14" />
-    </div>
-    <div class="absolute bottom-10 left-1/2 opacity-25 animate-float-slower hover-glow">
-      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-16 h-16" />
-    </div>
+    <!-- ICONOS TECNOLÓGICOS FLOTANTES -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="float-icon float-top-left hover-glow" />
+    <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="float-icon float-top-right hover-glow" />
+    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="float-icon float-bottom-center hover-glow" />
   </section>
 
-  <section id="servicios" class="py-16 px-4 max-w-6xl mx-auto">
+  <!-- CONTENIDO: Servicios -->
+  <section id="servicios" class="py-16 px-6 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-10">Nuestros Servicios</h2>
     <div class="grid md:grid-cols-2 gap-8 mx-auto max-w-4xl">
       <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg text-center hover-glow transition">
@@ -105,7 +115,8 @@
     </div>
   </section>
 
-  <section id="planes" class="bg-gray-100 py-16 px-4 max-w-6xl mx-auto rounded-lg shadow-lg">
+  <!-- CONTENIDO: Planes con pestañas -->
+  <section id="planes" class="bg-gray-100 py-16 px-6 max-w-6xl mx-auto rounded-lg shadow-lg">
     <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Planes de Puntos de Venta</h2>
 
     <!-- Pestañas -->
@@ -118,7 +129,6 @@
     <!-- Contenido pestañas -->
     <div id="content-pc" class="tab-content">
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Plan Básico -->
         <div class="bg-white p-6 rounded-lg border border-gray-300 shadow-md hover-glow transition">
           <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Básico</h3>
           <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
@@ -142,7 +152,6 @@
           <p class="text-center mt-2 font-semibold text-gray-700">Pago único</p>
         </div>
 
-        <!-- Plan Avanzado -->
         <div class="bg-white p-6 rounded-lg border border-gray-400 shadow-lg hover-glow transition">
           <h3 class="text-2xl font-bold mb-4 text-center text-gray-900">Plan Avanzado</h3>
           <ul class="mb-6 list-disc list-inside space-y-2 text-gray-700 text-left">
@@ -210,21 +219,18 @@
     </div>
 
     <script>
-      // Pestañas funcionales
+      // Script pestañas
       const tabs = document.querySelectorAll('[id^="tab-"]');
       const contents = document.querySelectorAll('.tab-content');
 
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // Quitar estilos activos
           tabs.forEach(t => {
             t.classList.remove('border-cyan-500', 'text-cyan-600');
             t.classList.add('border-transparent', 'text-gray-600');
           });
-          // Ocultar todos los contenidos
           contents.forEach(c => c.classList.add('hidden'));
 
-          // Activar tab clickeada y mostrar contenido
           tab.classList.add('border-cyan-500', 'text-cyan-600');
           tab.classList.remove('border-transparent', 'text-gray-600');
           const contentId = tab.id.replace('tab', 'content');
@@ -234,23 +240,25 @@
     </script>
   </section>
 
-  <section id="computacion" class="py-16 px-4 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Tecnología a tu alcance</h2>
+  <!-- Tecnología adicional -->
+  <section id="computacion" class="py-16 px-6 max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-10 text-gray-800">Tecnología a tu alcance</h2>
     <div class="flex justify-center gap-12 flex-wrap">
       <img src="https://cdn-icons-png.flaticon.com/512/3059/3059364.png" alt="Computadora" class="w-28 h-28 hover-glow transition" />
       <img src="https://cdn-icons-png.flaticon.com/512/1082/1082609.png" alt="Laptop" class="w-28 h-28 hover-glow transition" />
       <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Servidor" class="w-28 h-28 hover-glow transition" />
     </div>
-    <p class="text-center mt-8 text-gray-700 max-w-3xl mx-auto">
+    <p class="mt-8 text-gray-700 max-w-3xl mx-auto">
       Equipos y tecnología moderna para que tu negocio funcione sin interrupciones. 
       Contamos con hardware y software integrados para ofrecerte la mejor solución.
     </p>
   </section>
 
-  <section id="nosotros" class="py-16 px-4 max-w-4xl mx-auto">
+  <!-- Sobre Nosotros -->
+  <section id="nosotros" class="py-16 px-6 max-w-4xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-6">Sobre Nosotros</h2>
-    <p class="text-center text-lg">JoVi System es una empresa de tecnología enfocada en soluciones para comercios de todos los tamaños. Nuestra misión es facilitar la gestión de negocios a través de sistemas intuitivos, confiables y accesibles.</p>
-    <div class="mt-10 space-y-8">
+    <p class="text-center text-lg mb-10">JoVi System es una empresa de tecnología enfocada en soluciones para comercios de todos los tamaños. Nuestra misión es facilitar la gestión de negocios a través de sistemas intuitivos, confiables y accesibles.</p>
+    <div class="space-y-8">
       <div>
         <h3 class="text-xl font-semibold mb-2">🎯 Misión</h3>
         <p>Ofrecer soluciones integrales de tecnología para puntos de venta y facturación, que sean accesibles, seguras y personalizables, facilitando la gestión comercial de pequeñas y medianas empresas en República Dominicana y el Caribe.</p>
@@ -272,7 +280,8 @@
     </div>
   </section>
 
-  <section id="contacto" class="bg-gray-900 text-white py-16 px-4">
+  <!-- Contacto -->
+  <section id="contacto" class="bg-gray-900 text-white py-16 px-6">
     <h2 class="text-3xl font-bold text-center mb-6">Contáctanos</h2>
     <p class="text-center mb-6">¿Quieres más información o agendar una demo? Escríbenos ahora.</p>
     <form class="max-w-xl mx-auto grid gap-4">
@@ -296,5 +305,6 @@
       <path d="M16.54 14.86l-1.4-.68a.53.53 0 00-.58.13l-.89 1.07a7.89 7.89 0 01-3.74-3.8l1.06-.91a.53.53 0 00.13-.58l-.66-1.42a.53.53 0 00-.65-.27 5.58 5.58 0 00-2.77 2.84 5.61 5.61 0 003.2 7.74.53.53 0 00.57-.1l1.04-1.03a.53.53 0 00.13-.57l-1.06-1.68z"/>
     </svg>
   </a>
+
 </body>
 </html>
