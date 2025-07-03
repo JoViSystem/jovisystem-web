@@ -17,6 +17,7 @@
       font-family: 'Orbitron', sans-serif;
     }
 
+    /* Animaciones flotantes existentes */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
@@ -42,38 +43,38 @@
     /* Animaciones tecnológicas mejoradas y nuevas */
     @keyframes pulse-glow {
       0%, 100% {
-        box-shadow: 0 0 10px 3px rgba(0, 255, 255, 0.6); /* Más intenso */
+        box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.7); /* Más intenso */
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 30px 10px rgba(0, 255, 255, 0.95); /* Más intenso */
-        transform: scale(1.1); /* Ligeramente más grande */
+        box-shadow: 0 0 40px 15px rgba(0, 255, 255, 1); /* Mucho más intenso */
+        transform: scale(1.12); /* Ligeramente más grande */
       }
     }
     .glow-pulse {
       animation: pulse-glow 3s ease-in-out infinite;
-      border-radius: 50%; /* Asegura el efecto circular */
+      border-radius: 50%; /* Asegura el efecto circular para el SVG también */
     }
     
     /* Animación para iconos al pasar mouse - más intenso */
     .hover-glow:hover {
-      box-shadow: 0 0 20px 8px #06b6d4; /* Más intenso */
-      transform: scale(1.2); /* Más grande */
+      box-shadow: 0 0 25px 10px #06b6d4; /* Más intenso */
+      transform: scale(1.25); /* Más grande */
       transition: all 0.3s ease;
     }
 
-    /* Animación de Rayos */
+    /* Animación de Rayos - Colores más vivos */
     @keyframes tech-rays {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
     }
     .tech-rays-bg {
-      background: linear-gradient(45deg, rgba(6,182,212,0.15) 0%, rgba(6,182,212,0.6) 50%, rgba(6,182,212,0.15) 100%); /* Más visible */
+      background: linear-gradient(45deg, rgba(6,182,212,0.2) 0%, rgba(6,182,212,0.7) 50%, rgba(6,182,212,0.2) 100%); /* Más visible */
       background-size: 200% 200%;
       animation: tech-rays 10s linear infinite;
     }
 
-    /* Animación de Matriz Binaria */
+    /* Animación de Matriz Binaria - Más densa y visible */
     @keyframes binary-matrix {
       0% { background-position: 0% 0%; }
       100% { background-position: 100% 100%; }
@@ -81,17 +82,17 @@
     .binary-matrix-bg {
       background: 
         repeating-linear-gradient(-45deg, 
-          rgba(0,255,255,0.07) 0px, /* Más visible */
-          rgba(0,255,255,0.07) 1px, 
+          rgba(0,255,255,0.09) 0px, /* Más visible */
+          rgba(0,255,255,0.09) 1px, 
           transparent 1px, 
-          transparent 20px),
+          transparent 15px), /* Menos espacio, más denso */
         repeating-linear-gradient(45deg, 
-          rgba(0,255,255,0.07) 0px, 
-          rgba(0,255,255,0.07) 1px, 
+          rgba(0,255,255,0.09) 0px, 
+          rgba(0,255,255,0.09) 1px, 
           transparent 1px, 
-          transparent 20px);
-      background-size: 40px 40px;
-      animation: binary-matrix 20s linear infinite;
+          transparent 15px);
+      background-size: 30px 30px; /* Tamaño de celda más pequeño */
+      animation: binary-matrix 15s linear infinite; /* Más rápido */
     }
 
     /* Animación de Iconos giratorios */
@@ -109,18 +110,39 @@
     .animate-rotate-fast {
       animation: rotate-fast 10s linear infinite;
     }
+    @keyframes rotate-slower {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-slower {
+      animation: rotate-slower 30s linear infinite;
+    }
 
-    /* Nueva animación de grid de fondo */
+
+    /* Nueva animación de grid de fondo - Más notorio */
     @keyframes grid-pulse {
-      0%, 100% { background-position: 0% 0%; opacity: 0.05; }
-      50% { background-position: 50% 50%; opacity: 0.15; }
+      0%, 100% { background-position: 0% 0%; opacity: 0.08; } /* Opacidad ligeramente aumentada */
+      50% { background-position: 50% 50%; opacity: 0.2; } /* Opacidad más alta en el medio */
     }
     .grid-bg {
       background: 
-        linear-gradient(to right, rgba(0,255,255,0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,255,255,0.1) 1px, transparent 1px);
-      background-size: 30px 30px;
-      animation: grid-pulse 15s ease-in-out infinite;
+        linear-gradient(to right, rgba(0,255,255,0.15) 1px, transparent 1px), /* Líneas más visibles */
+        linear-gradient(to bottom, rgba(0,255,255,0.15) 1px, transparent 1px);
+      background-size: 25px 25px; /* Tamaño de celda más pequeño */
+      animation: grid-pulse 12s ease-in-out infinite; /* Más rápido */
+    }
+
+    /* Animación de barrido de color en el encabezado */
+    @keyframes color-sweep {
+      0% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 5%, transparent 100%); }
+      50% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 95%, transparent 100%); }
+      100% { background-image: linear-gradient(to right, transparent 0%, rgba(6,182,212,0.1) 5%, transparent 100%); }
+    }
+    .color-sweep-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      animation: color-sweep 15s ease-in-out infinite;
     }
 
   </style>
@@ -130,8 +152,13 @@
   <section class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-20 px-4 text-center relative overflow-hidden">
     <div class="absolute inset-0 z-0 opacity-10 tech-rays-bg"></div>
     <div class="absolute inset-0 z-0 opacity-5 binary-matrix-bg"></div>
-    <div class="absolute inset-0 z-0 opacity-10 grid-bg"></div> <div class="relative z-10 flex justify-center items-center gap-6 mb-4">
-      <img src="Logo JoVi System.jpg" alt="Logo JoVi System" class="w-28 h-28 object-contain glow-pulse rounded-full border-2 border-cyan-400" />
+    <div class="absolute inset-0 z-0 opacity-10 grid-bg"></div>
+    <div class="color-sweep-overlay"></div> <div class="relative z-10 flex justify-center items-center gap-6 mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-cyan-400 glow-pulse" fill="none" viewBox="0 0 64 64" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="14" width="48" height="30" rx="3" ry="3" />
+        <rect x="16" y="46" width="32" height="4" rx="1" ry="1" />
+        <line x1="32" y1="50" x2="32" y2="58" />
+      </svg>
       
       <h1 class="text-6xl md:text-7xl font-bold tracking-tight drop-shadow-lg font-orbitron">JoVi System</h1>
     </div>
@@ -159,6 +186,18 @@
     </div>
     <div class="absolute bottom-1/4 right-5 opacity-25 animate-float z-10">
       <img src="https://cdn-icons-png.flaticon.com/512/149/149092.png" alt="Cloud" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-1/3 right-1/4 opacity-20 animate-float animate-rotate-slower z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920377.png" alt="Chip" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-1/3 left-1/4 opacity-18 animate-float-fast animate-rotate-fast z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/189/189912.png" alt="Atomo" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute top-20 left-1/4 opacity-22 animate-float-slow z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" alt="Candado" class="w-10 h-10 text-cyan-300" />
+    </div>
+    <div class="absolute bottom-20 right-1/4 opacity-28 animate-float z-10">
+      <img src="https://cdn-icons-png.flaticon.com/512/1004/1004945.png" alt="Rayo" class="w-10 h-10 text-cyan-300" />
     </div>
 
   </section>
