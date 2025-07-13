@@ -390,10 +390,19 @@
     <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition inline-block">Solicita tu demo gratis</a>
   </div>
 
-<form action="https://formspree.io/f/mldlrgpv" method="POST" class="max-w-xl mx-auto grid gap-4">
-  <input type="text" name="nombre" placeholder="Nombre" class="p-3 rounded text-gray-900" required />
-  <input type="email" name="email" placeholder="Correo electrónico" class="p-3 rounded text-gray-900" required />
-  <textarea name="mensaje" rows="4" placeholder="Mensaje" class="p-3 rounded text-gray-900" required></textarea>
+<form action="https://formspree.io/f/mldlrgpv" method="POST" class="max-w-xl mx-auto grid gap-4 text-left">
+  <label for="nombre" class="font-semibold">Nombre</label>
+  <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" class="p-3 rounded text-gray-900" required />
+
+  <label for="email" class="font-semibold">Correo electrónico</label>
+  <input type="email" id="email" name="email" placeholder="tu@correo.com" class="p-3 rounded text-gray-900" required />
+
+  <label for="telefono" class="font-semibold">Número de teléfono</label>
+  <input type="tel" id="telefono" name="telefono" placeholder="Ej. 809-000-0000" class="p-3 rounded text-gray-900" required />
+
+  <label for="mensaje" class="font-semibold">Mensaje</label>
+  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí" class="p-3 rounded text-gray-900" required></textarea>
+
   <button type="submit" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded shadow hover:bg-gray-100 transition">
     Enviar mensaje
   </button>
