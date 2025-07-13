@@ -390,12 +390,14 @@
     <a href="#contacto" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg shadow hover:bg-gray-100 transition inline-block">Solicita tu demo gratis</a>
   </div>
 
-  <form class="max-w-xl mx-auto grid gap-4">
-    <input type="text" placeholder="Nombre" class="p-3 rounded text-gray-900" required />
-    <input type="email" placeholder="Correo electrónico" class="p-3 rounded text-gray-900" required />
-    <textarea rows="4" placeholder="Mensaje" class="p-3 rounded text-gray-900" required></textarea>
-    <button type="submit" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded shadow hover:bg-gray-100 transition">Enviar mensaje</button>
-  </form>
+<form action="https://formspree.io/f/mldlrgpv" method="POST" class="max-w-xl mx-auto grid gap-4">
+  <input type="text" name="nombre" placeholder="Nombre" class="p-3 rounded text-gray-900" required />
+  <input type="email" name="email" placeholder="Correo electrónico" class="p-3 rounded text-gray-900" required />
+  <textarea name="mensaje" rows="4" placeholder="Mensaje" class="p-3 rounded text-gray-900" required></textarea>
+  <button type="submit" class="bg-white text-gray-900 font-semibold px-6 py-2 rounded shadow hover:bg-gray-100 transition">
+    Enviar mensaje
+  </button>
+</form>
 
   <!-- Redes Sociales -->
   <div class="flex justify-center items-center gap-2 mt-10">
